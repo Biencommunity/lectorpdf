@@ -1,0 +1,6 @@
+{
+  "appId": "com.biencommunity.lectorpdf",
+  "appName": "Lector PDF",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}
