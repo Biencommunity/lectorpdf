@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f2937">
+<title>Lector PDF</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="lib/pdf_viewer.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Pantalla de inicio -->
+<section id="home">
+  <header class="home-head">
+    <h1>Lector PDF</h1>
+    <p>Abre un PDF de tu móvil. Todo se queda en tu dispositivo.</p>
+  </header>
+  <label class="btn-primary" for="fileInput">Abrir PDF</label>
+  <input id="fileInput" type="file" accept="application/pdf,.pdf" hidden>
+  <h2>Recientes</h2>
+  <ul id="recents" class="recents"></ul>
+  <p id="noRecents" class="muted">Todavía no has abierto ningún PDF.</p>
+</section>
+
+<!-- Lector -->
+<section id="reader" hidden>
+  <header class="bar top">
+    <button id="btnBack" aria-label="Volver">←</button>
+    <div class="title" id="docTitle">Documento</div>
+    <button id="btnSearch" aria-label="Buscar">🔍</button>
+    <button id="btnOutline" aria-label="Índice">☰</button>
+    <button id="btnTheme" aria-label="Modo oscuro">◐</button>
+  </header>
+
+  <div id="searchBar" class="bar search" hidden>
+    <input id="searchInput" type="search" placeholder="Buscar en el documento" autocomplete="off">
+    <button id="searchPrev" aria-label="Anterior">▲</button>
+    <button id="searchNext" aria-label="Siguiente">▼</button>
+    <span id="searchCount" class="muted"></span>
+    <button id="searchClose" aria-label="Cerrar">✕</button>
+  </div>
+
+  <div id="viewerContainer"><div id="viewer" class="pdfViewer"></div></div>
+
+  <aside id="outline" hidden>
+    <div class="outline-head"><strong>Índice</strong><button id="outlineClose" aria-label="Cerrar">✕</button></div>
+    <div id="outlineList"></div>
+  </aside>
+
+  <footer class="bar bottom">
+    <button id="zoomOut" aria-label="Alejar">−</button>
+    <button id="zoomFit" aria-label="Ajustar al ancho">↔</button>
+    <button id="zoomIn" aria-label="Acercar">+</button>
+    <span class="spacer"></span>
+    <button id="prevPage" aria-label="Página anterior">‹</button>
+    <input id="pageInput" type="number" inputmode="numeric" min="1" value="1" aria-label="Página">
+    <span id="pageTotal">/ 1</span>
+    <button id="nextPage" aria-label="Página siguiente">›</button>
+  </footer>
+</section>
+
+<div id="loading" hidden>Cargando…</div>
+<div id="toast" hidden></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
